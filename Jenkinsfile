@@ -12,7 +12,7 @@ pipeline {
         stage('test') {
           steps {
             echo 'additional steps'
-            echo '"user logged in ${user}"'
+            echo "user logged in ${user}"
           }
         }
 
