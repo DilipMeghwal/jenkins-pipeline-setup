@@ -19,6 +19,7 @@ pipeline {
         stage('test logs') {
           steps {
             echo 'test logs'
+            writeFile(file: 'test-logs.txt', text: 'testing logs for user ${user}')
           }
         }
 
@@ -35,7 +36,7 @@ pipeline {
 
         stage('artifact') {
           steps {
-            archiveArtifacts 'text-artifact.txt'
+            archiveArtifacts 'text-logs.txt'
           }
         }
 
