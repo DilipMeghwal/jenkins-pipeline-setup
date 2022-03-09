@@ -27,6 +27,9 @@ pipeline {
     }
 
     stage('deploy') {
+      when{
+        branch 'master'
+      }
       parallel {
         stage('deploy') {
           steps {
