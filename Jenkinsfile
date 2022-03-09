@@ -19,7 +19,7 @@ pipeline {
         stage('test logs') {
           steps {
             echo 'test logs'
-            writeFile(file: 'test-logs.txt', text: 'testing logs for user ${user}')
+            writeFile(file: 'test-logs.txt', text: "testing logs for user ${user}")
           }
         }
 
