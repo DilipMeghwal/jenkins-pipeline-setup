@@ -12,6 +12,7 @@ pipeline {
         stage('test') {
           steps {
             echo 'additional steps'
+            echo '"user logged in ${user}"'
           }
         }
 
@@ -41,5 +42,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    user = 'Dilip Meghwal'
   }
 }
