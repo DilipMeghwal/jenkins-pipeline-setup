@@ -11,7 +11,7 @@ pipeline {
 
         stage('test') {
           steps {
-            echo 'additional steps'
+            echo 'additional steps dev branch'
             echo "user logged in ${user}"
           }
         }
@@ -27,7 +27,7 @@ pipeline {
     }
 
     stage('deploy') {
-      when{
+      when {
         branch 'master'
       }
       parallel {
