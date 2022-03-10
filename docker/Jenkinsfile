@@ -1,0 +1,14 @@
+pipeline {
+  agent docker-agent
+  stages {
+    stage('build') {
+      parallel {
+        stage('build') {
+          steps {
+            echo 'building the code'
+          }
+        }
+      }
+    }
+  }
+}
