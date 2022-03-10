@@ -1,5 +1,9 @@
 pipeline {
-  agent docker
+  agent {
+        docker {
+            label 'docker'
+        }
+    }
   stages {
     stage('build') {
       parallel {
