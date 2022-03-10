@@ -1,53 +1,18 @@
 pipeline {
-  agent any
+  agent {
+    dockerfile true
+  }
   stages {
     stage('build') {
       parallel {
         stage('build') {
           steps {
             echo 'building the code'
+            sh 'node -version'
+            sh 'pwd'
           }
         }
-
-        stage('test') {
-          steps {
-            echo 'additional steps dev branch'
-            echo "user logged in ${user}"
-          }
-        }
-
-        stage('test logs') {
-          steps {
-            echo 'test logs'
-            writeFile(file: 'test-logs.txt', text: "testing logs for user ${user}")
-          }
-        }
-
       }
     }
-
-    stage('deploy') {
-      when {
-        branch 'master'
-      }
-      parallel {
-        stage('deploy') {
-          steps {
-            echo 'deploying the code'
-          }
-        }
-
-        stage('artifact') {
-          steps {
-            archiveArtifacts 'test-logs.txt'
-          }
-        }
-
-      }
-    }
-
-  }
-  environment {
-    user = 'Dilip Meghwal'
   }
 }
