@@ -1,5 +1,5 @@
 pipeline {
-  agent "jenkins-agent"
+  agent docker
   stages {
     stage('build') {
       parallel {
